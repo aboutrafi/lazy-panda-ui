@@ -8,7 +8,6 @@ coverage
 /.vscode
 /.idea
 npm-debug.log*
-package-lock.json
 yarn.lock
 expo-debug.log
 .venv
