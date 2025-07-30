@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ViewStyle } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface TooltipProps {
   children: React.ReactNode;
@@ -15,9 +15,9 @@ export const Tooltip: React.FC<TooltipProps> = ({ children, text, style }) => {
   let trigger;
   if (typeof children === 'string') {
     trigger = <Text testID="tooltip-trigger">{children}</Text>;
-  } else if (Boolean(React.isValidElement(children))) {
+  } else if (React.isValidElement(children)) {
     // Only add testID if the child supports it, otherwise wrap in Text
-    if ((Boolean(children.props)) && typeof children.props === 'object' && 'testID' in children.props) {
+    if (children.props && typeof children.props === 'object' && 'testID' in children.props) {
       trigger = React.cloneElement(children as React.ReactElement<any>, { testID: 'tooltip-trigger' });
     } else {
       trigger = <Text testID="tooltip-trigger">{children}</Text>;
@@ -36,7 +36,7 @@ export const Tooltip: React.FC<TooltipProps> = ({ children, text, style }) => {
         {trigger}
       </TouchableOpacity>
       {visible && (
-        <View style={styles(theme).tooltip} testID="tooltip-content">
+        <View style={styles(theme as Theme).tooltip} testID="tooltip-content">
           <Text style={styles(theme).text}>{text}</Text>
         </View>
       )}

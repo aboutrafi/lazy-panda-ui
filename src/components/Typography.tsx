@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet, TextStyle } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface TypographyProps {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ export interface TypographyProps {
   style?: TextStyle;
 }
 
-const variantStyles = (theme: unknown) => ({
+const variantStyles = (theme: Theme) => ({
   h1: { fontSize: 32, fontWeight: 'bold', color: theme.colors.text },
   h2: { fontSize: 28, fontWeight: 'bold', color: theme.colors.text },
   h3: { fontSize: 24, fontWeight: 'bold', color: theme.colors.text },

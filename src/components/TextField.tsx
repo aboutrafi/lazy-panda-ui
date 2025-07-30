@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextInput, StyleSheet, View, TextInputProps, Text } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface TextFieldProps extends TextInputProps {
   label?: string;
@@ -22,7 +22,7 @@ export const TextField: React.FC<TextFieldProps> = ({ label, error, style, ...pr
   );
 };
 
-const styles = (theme: unknown) => StyleSheet.create({
+const styles = (theme: Theme) => StyleSheet.create({
   label: {
     marginBottom: 4,
     color: theme.colors.text,
