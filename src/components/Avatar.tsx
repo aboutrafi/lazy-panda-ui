@@ -16,7 +16,7 @@ export const Avatar: React.FC<AvatarProps> = ({ source, label, size = 40, style 
       {source ? (
         <Image source={source} style={styles(theme, size).image} />
       ) : (
-        <Text style={styles(theme, size).label}>{(Boolean((label?.[0]))) || '?'}</Text>
+        <Text style={styles(theme, size).label}>{label && label.length > 0 ? label[0] : '?'}</Text>
       )}
     </View>
   );
