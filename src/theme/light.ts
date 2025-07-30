@@ -1,5 +1,9 @@
+import { baseTheme } from './base';
+
 export const lightTheme = {
+  ...baseTheme,
   colors: {
+    ...baseTheme.colors,
     primary: '#007AFF',
     secondary: '#FF9500',
     background: '#FFFFFF',
@@ -8,12 +12,4 @@ export const lightTheme = {
     border: '#E5E5EA',
     disabled: '#C7C7CC',
   },
-  spacing: {
-    xs: 4,
-    sm: 8,
-    md: 16,
-    lg: 24,
-    xl: 32,
-  },
-  borderRadius: 8,
 };

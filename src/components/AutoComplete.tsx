@@ -1,0 +1,81 @@
+import React, { useState } from 'react';
+import { View, TextInput, FlatList, TouchableOpacity, Text, StyleSheet, ViewStyle } from 'react-native';
+import { useTheme } from '../theme/ThemeProvider';
+
+export interface AutoCompleteProps {
+  data: string[];
+  onSelect: (value: string) => void;
+  placeholder?: string;
+  style?: ViewStyle;
+}
+
+export const AutoComplete: React.FC<AutoCompleteProps> = ({ data, onSelect, placeholder, style }) => {
+  const theme = useTheme();
+  const [query, setQuery] = useState('');
+  const [showList, setShowList] = useState(false);
+
+  const filtered = (data ?? []).filter(item => item.toLowerCase().includes(query.toLowerCase()));
+
+  return (
+    <View style={style}>
+      <TextInput
+        testID="autocomplete-input"
+        style={styles(theme).input}
+        value={query}
+        onChangeText={text => {
+          setQuery(text);
+          setShowList(true);
+        }}
+        placeholder={placeholder}
+        placeholderTextColor={theme.colors.border}
+        onBlur={() => setTimeout(() => setShowList(false), 100)}
+        onFocus={() => setShowList(true)}
+      />
+      {showList && filtered.length > 0 && (
+        <FlatList
+          data={filtered}
+          keyExtractor={item => item}
+          style={styles(theme).list}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              testID={`autocomplete-option-${item}`}
+              style={styles(theme).item}
+              onPress={() => {
+                setQuery(item);
+                setShowList(false);
+                onSelect(item);
+              }}
+            >
+              <Text style={styles(theme).text}>{item}</Text>
+            </TouchableOpacity>
+          )}
+        />
+      )}
+    </View>
+  );
+};
+
+const styles = (theme: any) => StyleSheet.create({
+  input: {
+    borderWidth: 1,
+    borderColor: theme.colors.border,
+    borderRadius: theme.borderRadius,
+    padding: theme.spacing.sm,
+    color: theme.colors.text,
+    backgroundColor: theme.colors.background,
+  },
+  list: {
+    backgroundColor: theme.colors.card,
+    borderRadius: theme.borderRadius,
+    marginTop: 2,
+    maxHeight: 120,
+  },
+  item: {
+    padding: theme.spacing.sm,
+    borderBottomWidth: 1,
+    borderBottomColor: theme.colors.border,
+  },
+  text: {
+    color: theme.colors.text,
+  },
+});

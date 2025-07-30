@@ -1,5 +1,9 @@
+import { baseTheme } from './base';
+
 export const darkTheme = {
+  ...baseTheme,
   colors: {
+    ...baseTheme.colors,
     primary: '#0A84FF',
     secondary: '#FFD60A',
     background: '#1C1C1E',
@@ -8,12 +12,4 @@ export const darkTheme = {
     border: '#3A3A3C',
     disabled: '#48484A',
   },
-  spacing: {
-    xs: 4,
-    sm: 8,
-    md: 16,
-    lg: 24,
-    xl: 32,
-  },
-  borderRadius: 8,
 };

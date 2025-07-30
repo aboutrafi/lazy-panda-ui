@@ -1,26 +1,4 @@
-import React from 'react';
-import { View, StyleSheet, ViewStyle } from 'react-native';
-import { theme } from '../theme';
-
-interface CardProps {
-  children: React.ReactNode;
-  style?: ViewStyle;
-}
-
-export const Card: React.FC<CardProps> = ({ children, style }) => (
-  <View style={[styles.card, style]}>{children}</View>
-);
-
-const styles = StyleSheet.create({
-  card: {
-    backgroundColor: theme.colors.card,
-    borderRadius: theme.borderRadius,
-    padding: theme.spacing.md,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+import React from 'react';import { View, StyleSheet, ViewStyle } from 'react-native';import { useTheme } from '../theme/ThemeProvider';export interface CardProps {  children: React.ReactNode;  style?: ViewStyle;  elevation?: number;}export const Card: React.FC<CardProps> = ({ children, style, elevation = 2 }) => {  const theme = useTheme();  return (    <View style={[styles(theme, elevation).card, style]}>{children}</View>  );};const styles = (theme: any, elevation: number) => StyleSheet.create({  card: {    backgroundColor: theme.colors.card,    borderRadius: theme.borderRadius,    padding: theme.spacing.md,    shadowColor: '#000',    shadowOffset: { width: 0, height: elevation },    shadowOpacity: 0.1 * elevation,    shadowRadius: 2 * elevation,    elevation,
     marginVertical: theme.spacing.sm,
   },
 });

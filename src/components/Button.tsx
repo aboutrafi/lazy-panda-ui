@@ -6,20 +6,22 @@ interface ButtonProps {
   title: string;
   onPress: () => void;
   disabled?: boolean;
-  style?: ViewStyle;
+  style?: ViewStyle | ViewStyle[];
   textStyle?: TextStyle;
+  testID?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({ title, onPress, disabled, style, textStyle }) => (
+export const Button: React.FC<ButtonProps> = ({ title, onPress, disabled, style, textStyle, testID }) => (
   <TouchableOpacity
     style={[
       styles.button,
-      disabled && styles.disabled,
-      style,
+      disabled ? styles.disabled : undefined,
+      ...(Array.isArray(style) ? style : style ? [style] : []),
     ]}
     onPress={onPress}
     disabled={disabled}
     activeOpacity={0.7}
+    testID={testID}
   >
     <Text style={[styles.text, textStyle]}>{title}</Text>
   </TouchableOpacity>
