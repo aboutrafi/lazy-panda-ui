@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, ViewStyle } from 'react-native';
 import { Button } from './Button';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface ButtonGroupProps {
   buttons: { label: string; onPress: () => void; disabled?: boolean }[];
@@ -34,7 +34,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({ buttons, selectedIndex
   );
 };
 
-const styles = (theme: unknown) => StyleSheet.create({
+const styles = (theme: Theme) => StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',

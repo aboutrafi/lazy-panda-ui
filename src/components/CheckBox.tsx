@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, View, StyleSheet } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface CheckBoxProps {
   checked: boolean;
@@ -26,7 +26,7 @@ export const CheckBox: React.FC<CheckBoxProps> = ({ checked, onChange, disabled,
   );
 };
 
-const styles = (theme: unknown) => StyleSheet.create({
+const styles = (theme: Theme) => StyleSheet.create({
   box: {
     width: 24,
     height: 24,

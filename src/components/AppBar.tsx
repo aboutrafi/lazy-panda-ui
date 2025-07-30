@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ViewStyle } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface AppBarProps {
   title: string;
@@ -20,7 +20,7 @@ export const AppBar: React.FC<AppBarProps> = ({ title, style, left, right }) => 
   );
 };
 
-const styles = (theme: unknown) => StyleSheet.create({
+const styles = (theme: Theme) => StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal, View, StyleSheet, ViewStyle } from 'react-native';
 import { Text } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface DialogProps {
   open: boolean;
@@ -27,7 +27,7 @@ export const Dialog: React.FC<DialogProps> = ({ open, onClose, children, style, 
   );
 };
 
-const styles = (theme: unknown) => StyleSheet.create({
+const styles = (theme: Theme) => StyleSheet.create({
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.3)',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, ViewStyle } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface ChipProps {
   label: string;
@@ -27,7 +27,7 @@ export const Chip: React.FC<ChipProps> = ({ label, onPress, selected, style }) =
   );
 };
 
-const styles = (theme: unknown) => StyleSheet.create({
+const styles = (theme: Theme) => StyleSheet.create({
   chip: {
     borderWidth: 1,
     borderColor: theme.colors.primary,

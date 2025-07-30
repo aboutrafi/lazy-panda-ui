@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ViewStyle, FlatList, TouchableOpacity } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface ListItem {
   label: string;
@@ -32,7 +32,7 @@ export const List: React.FC<ListProps> = ({ items, style }) => {
   );
 };
 
-const styles = (theme: unknown) => StyleSheet.create({
+const styles = (theme: Theme) => StyleSheet.create({
   item: {
     padding: theme.spacing.md,
     borderBottomWidth: 1,

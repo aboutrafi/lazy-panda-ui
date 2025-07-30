@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ViewStyle } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export type AlertType = 'success' | 'info' | 'warning' | 'error';
 export interface AlertProps {
@@ -25,7 +25,7 @@ export const Alert: React.FC<AlertProps> = ({ message, type = 'info', style }) =
   );
 };
 
-const styles = (theme: unknown, type: AlertType) => StyleSheet.create({
+const styles = (theme: Theme, type: AlertType) => StyleSheet.create({
   container: {
     backgroundColor: typeColors(theme)[type],
     padding: theme.spacing.md,

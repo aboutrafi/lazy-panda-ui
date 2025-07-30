@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ViewStyle } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface BadgeProps {
   value: string | number;
@@ -16,7 +16,7 @@ export const Badge: React.FC<BadgeProps> = ({ value, style }) => {
   );
 };
 
-const styles = (theme: unknown) => StyleSheet.create({
+const styles = (theme: Theme) => StyleSheet.create({
   container: {
     minWidth: 20,
     height: 20,

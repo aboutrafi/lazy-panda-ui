@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, ViewStyle } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface AccordionProps {
   title: string;
@@ -31,7 +31,7 @@ export const Accordion: React.FC<AccordionProps> = ({ title, children, style }) 
   );
 };
 
-const styles = (theme: unknown) => StyleSheet.create({
+const styles = (theme: Theme) => StyleSheet.create({
   header: {
     padding: theme.spacing.md,
     backgroundColor: theme.colors.card,

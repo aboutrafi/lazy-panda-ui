@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, ViewStyle } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
+import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface PaperProps {
   children: React.ReactNode;
@@ -15,7 +15,7 @@ export const Paper: React.FC<PaperProps> = ({ children, style, elevation = 2 }) 
   );
 };
 
-const styles = (theme: unknown, elevation: number) => StyleSheet.create({  paper: {
+const styles = (theme: Theme, elevation: number) => StyleSheet.create({  paper: {
     backgroundColor: theme.colors.card,
     borderRadius: theme.borderRadius,
     padding: theme.spacing.md,
