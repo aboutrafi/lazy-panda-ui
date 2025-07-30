@@ -32,7 +32,7 @@ export const List: React.FC<ListProps> = ({ items, style }) => {
   );
 };
 
-const styles = (theme: any) => StyleSheet.create({
+const styles = (theme: unknown) => StyleSheet.create({
   item: {
     padding: theme.spacing.md,
     borderBottomWidth: 1,

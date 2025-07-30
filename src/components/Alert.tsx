@@ -25,7 +25,7 @@ export const Alert: React.FC<AlertProps> = ({ message, type = 'info', style }) =
   );
 };
 
-const styles = (theme: any, type: AlertType) => StyleSheet.create({
+const styles = (theme: unknown, type: AlertType) => StyleSheet.create({
   container: {
     backgroundColor: typeColors(theme)[type],
     padding: theme.spacing.md,

@@ -19,13 +19,13 @@ export const Select: React.FC<SelectProps> = ({ options, value, onChange, placeh
       <TouchableOpacity
         testID="select-trigger"
         style={styles(theme).select}
-        onPress={() => setVisible(true)}
+        onPress={() => { setVisible(true); }}
         activeOpacity={0.7}
       >
-        <Text style={styles(theme).text}>{value || placeholder || 'Select...'}</Text>
+        <Text style={styles(theme).text}>{(Boolean(value)) || placeholder || 'Select...'}</Text>
       </TouchableOpacity>
       <Modal visible={visible} transparent animationType="fade">
-        <TouchableOpacity style={styles(theme).overlay} onPress={() => setVisible(false)}>
+        <TouchableOpacity style={styles(theme).overlay} onPress={() => { setVisible(false); }}>
           <View style={styles(theme).modal}>
             <FlatList
               data={options}

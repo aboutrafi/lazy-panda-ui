@@ -15,8 +15,7 @@ export const Paper: React.FC<PaperProps> = ({ children, style, elevation = 2 }) 
   );
 };
 
-const styles = (theme: any, elevation: number) => StyleSheet.create({
-  paper: {
+const styles = (theme: unknown, elevation: number) => StyleSheet.create({  paper: {
     backgroundColor: theme.colors.card,
     borderRadius: theme.borderRadius,
     padding: theme.spacing.md,

@@ -11,18 +11,18 @@ export const TextField: React.FC<TextFieldProps> = ({ label, error, style, ...pr
   const theme = useTheme();
   return (
     <View style={{ marginBottom: theme.spacing.md }}>
-      {label && <Text style={[styles(theme).label]}>{label}</Text>}
+      {label && <Text style={styles(theme).label}>{label}</Text>}
       <TextInput
         style={[styles(theme).input, style]}
         placeholderTextColor={theme.colors.border}
         {...props}
       />
-      {error && <Text style={styles(theme).error}>{error}</Text>}
+      {(Boolean(error)) && <Text style={styles(theme).error}>{error}</Text>}
     </View>
   );
 };
 
-const styles = (theme: any) => StyleSheet.create({
+const styles = (theme: unknown) => StyleSheet.create({
   label: {
     marginBottom: 4,
     color: theme.colors.text,

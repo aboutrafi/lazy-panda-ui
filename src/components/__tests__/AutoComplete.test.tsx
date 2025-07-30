@@ -5,7 +5,7 @@ import { AutoComplete } from '../AutoComplete';
 describe('AutoComplete', () => {
   it('renders input', () => {
     const { getByPlaceholderText } = render(
-      <AutoComplete data={['A', 'B']} onSelect={() => {}} placeholder="Type" />
+      <AutoComplete data={['A', 'B']} onSelect={function() {}} placeholder="Type" />
     );
     expect(getByPlaceholderText('Type')).toBeTruthy();
   });

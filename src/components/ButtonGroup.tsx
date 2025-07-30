@@ -34,7 +34,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = ({ buttons, selectedIndex
   );
 };
 
-const styles = (theme: any) => StyleSheet.create({
+const styles = (theme: unknown) => StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',

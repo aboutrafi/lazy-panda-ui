@@ -31,7 +31,7 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({ options, value, onChange
   );
 };
 
-const styles = (theme: any) => StyleSheet.create({
+const styles = (theme: unknown) => StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',

@@ -28,8 +28,8 @@ export const AutoComplete: React.FC<AutoCompleteProps> = ({ data, onSelect, plac
         }}
         placeholder={placeholder}
         placeholderTextColor={theme.colors.border}
-        onBlur={() => setTimeout(() => setShowList(false), 100)}
-        onFocus={() => setShowList(true)}
+        onBlur={() => setTimeout(() => { setShowList(false); }, 100)}
+        onFocus={function() { return setShowList(true) }}
       />
       {showList && filtered.length > 0 && (
         <FlatList

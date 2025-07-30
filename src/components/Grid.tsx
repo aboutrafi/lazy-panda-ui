@@ -16,7 +16,7 @@ export const Grid: React.FC<GridProps> = ({ children, columns = 2, gap = 8, styl
         <View
           key={idx}
           style={{
-            width: `${100 / columns}%`,
+            width: ""+100 / columns+"%",
             padding: gap / 2,
           }}
         >

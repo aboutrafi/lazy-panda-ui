@@ -4,7 +4,7 @@ import { Fab } from '../Fab';
 
 describe('Fab', () => {
   it('renders with label', () => {
-    const { getByText } = render(<Fab label="Add" onPress={() => {}} />);
+    const { getByText } = render(<Fab label="Add" onPress={function() {}} />);
     expect(getByText('Add')).toBeTruthy();
   });
 

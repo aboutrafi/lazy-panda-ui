@@ -20,7 +20,7 @@ export const AppBar: React.FC<AppBarProps> = ({ title, style, left, right }) => 
   );
 };
 
-const styles = (theme: any) => StyleSheet.create({
+const styles = (theme: unknown) => StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',

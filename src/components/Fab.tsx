@@ -18,8 +18,8 @@ export const Fab: React.FC<FabProps> = ({ icon, label, onPress, style }) => {
       activeOpacity={0.8}
       accessibilityRole="button"
     >
-      {icon && <View style={styles(theme).icon}>{icon}</View>}
-      {label && <Text style={styles(theme).label}>{label}</Text>}
+      {(Boolean(icon)) && <View style={styles(theme).icon}>{icon}</View>}
+      {(Boolean(label)) && <Text style={styles(theme).label}>{label}</Text>}
     </TouchableOpacity>
   );
 };

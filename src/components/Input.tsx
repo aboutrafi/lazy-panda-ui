@@ -11,18 +11,18 @@ export const Input: React.FC<InputProps> = ({ label, error, style, ...props }) =
   const theme = useTheme();
   return (
     <View style={{ marginBottom: theme.spacing.md }}>
-      {label && <Text style={[styles(theme).label]}>{label}</Text>}
+      {(Boolean(label)) && <Text style={[styles(theme).label]}>{label}</Text>}
       <TextInput
         style={[styles(theme).input, style]}
         placeholderTextColor={theme.colors.border}
         {...props}
       />
-      {error && <Text style={styles(theme).error}>{error}</Text>}
+      {error ? <Text style={styles(theme).error}>{error}</Text> : null}
     </View>
   );
 };
 
-const styles = (theme: any) => StyleSheet.create({
+const styles = (theme: unknown) => StyleSheet.create({
   label: {
     marginBottom: 4,
     color: theme.colors.text,

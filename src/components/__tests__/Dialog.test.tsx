@@ -11,7 +11,7 @@ describe('Dialog', () => {
 
   it('renders children', () => {
     const { getByText } = render(
-      <Dialog open={true} title="Dialog Title" onClose={() => {}}>
+      <Dialog open={true} title="Dialog Title" onClose={function() {}}>
         <Text>Dialog Content</Text>
       </Dialog>
     );

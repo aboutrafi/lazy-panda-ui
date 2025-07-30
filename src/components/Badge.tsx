@@ -16,7 +16,7 @@ export const Badge: React.FC<BadgeProps> = ({ value, style }) => {
   );
 };
 
-const styles = (theme: any) => StyleSheet.create({
+const styles = (theme: unknown) => StyleSheet.create({
   container: {
     minWidth: 20,
     height: 20,

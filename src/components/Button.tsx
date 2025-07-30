@@ -16,7 +16,7 @@ export const Button: React.FC<ButtonProps> = ({ title, onPress, disabled, style,
     style={[
       styles.button,
       disabled ? styles.disabled : undefined,
-      ...(Array.isArray(style) ? style : style ? [style] : []),
+      ...(Array.isArray(style) ? style : (Boolean(style)) ? [style] : []),
     ]}
     onPress={onPress}
     disabled={disabled}

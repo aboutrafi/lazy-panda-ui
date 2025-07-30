@@ -15,9 +15,9 @@ export const Tooltip: React.FC<TooltipProps> = ({ children, text, style }) => {
   let trigger;
   if (typeof children === 'string') {
     trigger = <Text testID="tooltip-trigger">{children}</Text>;
-  } else if (React.isValidElement(children)) {
+  } else if (Boolean(React.isValidElement(children))) {
     // Only add testID if the child supports it, otherwise wrap in Text
-    if (children.props && typeof children.props === 'object' && 'testID' in children.props) {
+    if ((Boolean(children.props)) && typeof children.props === 'object' && 'testID' in children.props) {
       trigger = React.cloneElement(children as React.ReactElement<any>, { testID: 'tooltip-trigger' });
     } else {
       trigger = <Text testID="tooltip-trigger">{children}</Text>;
@@ -29,8 +29,8 @@ export const Tooltip: React.FC<TooltipProps> = ({ children, text, style }) => {
   return (
     <View style={style}>
       <TouchableOpacity
-        onPressIn={() => setVisible(true)}
-        onPressOut={() => setVisible(false)}
+        onPressIn={() => { setVisible(true); }}
+        onPressOut={() => { setVisible(false); }}
         activeOpacity={1}
       >
         {trigger}

@@ -27,7 +27,7 @@ export const Dialog: React.FC<DialogProps> = ({ open, onClose, children, style, 
   );
 };
 
-const styles = (theme: any) => StyleSheet.create({
+const styles = (theme: unknown) => StyleSheet.create({
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.3)',

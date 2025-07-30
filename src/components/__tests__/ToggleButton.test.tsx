@@ -29,7 +29,7 @@ describe('ToggleButton', () => {
       return style.backgroundColor;
     };
     expect(getBackgroundColor()).not.toBe('#007AFF'); // Not selected
-    rerender(<ToggleButton label="On" selected={true} onPress={() => {}} />);
+    rerender(<ToggleButton label="On" selected={true} onPress={function() {}} />);
     expect(getBackgroundColor()).toBe('#007AFF'); // Selected
   });
 });

@@ -22,7 +22,7 @@ export const ImageList: React.FC<ImageListProps> = ({ images, columns = 3, gap =
             borderRadius: 8,
           }}
           resizeMode="cover"
-          testID={`image-list-item-${idx}`}
+          testID={"image-list-item-"+idx}
         />
       ))}
     </View>

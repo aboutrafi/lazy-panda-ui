@@ -15,7 +15,7 @@ export const Accordion: React.FC<AccordionProps> = ({ title, children, style }) 
     <View style={style}>
       <TouchableOpacity
         style={styles(theme).header}
-        onPress={() => setOpen(o => !o)}
+        onPress={function() { return setOpen(o => !o) }}
         accessibilityRole="button"
         accessibilityState={{ expanded: open }}
         testID="accordion-header"
@@ -31,7 +31,7 @@ export const Accordion: React.FC<AccordionProps> = ({ title, children, style }) 
   );
 };
 
-const styles = (theme: any) => StyleSheet.create({
+const styles = (theme: unknown) => StyleSheet.create({
   header: {
     padding: theme.spacing.md,
     backgroundColor: theme.colors.card,

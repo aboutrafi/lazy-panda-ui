@@ -4,7 +4,7 @@ import { CheckBox } from '../CheckBox';
 
 describe('CheckBox', () => {
   it('renders checked state', () => {
-    const { getByTestId } = render(<CheckBox checked={true} onChange={() => {}} testID="checkbox" />);
+    const { getByTestId } = render(<CheckBox checked={true} onChange={function() {}} testID="checkbox" />);
     expect(getByTestId('checkbox')).toBeTruthy();
   });
 

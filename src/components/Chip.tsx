@@ -15,19 +15,19 @@ export const Chip: React.FC<ChipProps> = ({ label, onPress, selected, style }) =
     <TouchableOpacity
       style={[
         styles(theme).chip,
-        selected && styles(theme).selected,
+        (Boolean(selected)) && styles(theme).selected,
         style,
       ]}
       onPress={onPress}
-      activeOpacity={onPress ? 0.7 : 1}
-      disabled={!onPress}
+      activeOpacity={(Boolean(onPress)) ? 0.7 : 1}
+      disabled={!(Boolean(onPress))}
     >
       <Text style={styles(theme).label}>{label}</Text>
     </TouchableOpacity>
   );
 };
 
-const styles = (theme: any) => StyleSheet.create({
+const styles = (theme: unknown) => StyleSheet.create({
   chip: {
     borderWidth: 1,
     borderColor: theme.colors.primary,

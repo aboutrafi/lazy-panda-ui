@@ -11,7 +11,7 @@ export const Progress: React.FC<ProgressProps> = ({ value, style }) => {
   const theme = useTheme();
   return (
     <View style={[styles(theme).container, style]}>
-      <View style={[styles(theme).bar, { width: `${Math.max(0, Math.min(1, value)) * 100}%` }]} />
+      <View style={[styles(theme).bar, { width: ""+Math.max(0, Math.min(1, value)) * 100+"%" }]} />
     </View>
   );
 };

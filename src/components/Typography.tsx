@@ -8,7 +8,7 @@ export interface TypographyProps {
   style?: TextStyle;
 }
 
-const variantStyles = (theme: any) => ({
+const variantStyles = (theme: unknown) => ({
   h1: { fontSize: 32, fontWeight: 'bold', color: theme.colors.text },
   h2: { fontSize: 28, fontWeight: 'bold', color: theme.colors.text },
   h3: { fontSize: 24, fontWeight: 'bold', color: theme.colors.text },

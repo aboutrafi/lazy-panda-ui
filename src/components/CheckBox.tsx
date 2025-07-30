@@ -14,19 +14,19 @@ export const CheckBox: React.FC<CheckBoxProps> = ({ checked, onChange, disabled,
   return (
     <TouchableOpacity
       style={[styles(theme).box, checked && styles(theme).checked, disabled && styles(theme).disabled]}
-      onPress={() => !disabled && onChange(!checked)}
+      onPress={function() { return !disabled && onChange(!checked) }}
       activeOpacity={0.7}
       disabled={disabled}
       accessibilityRole="checkbox"
       accessibilityState={{ checked, disabled }}
       testID={testID}
     >
-      {checked && <View style={styles(theme).indicator} />}
+      {(Boolean(checked)) && <View style={styles(theme).indicator} />}
     </TouchableOpacity>
   );
 };
 
-const styles = (theme: any) => StyleSheet.create({
+const styles = (theme: unknown) => StyleSheet.create({
   box: {
     width: 24,
     height: 24,
