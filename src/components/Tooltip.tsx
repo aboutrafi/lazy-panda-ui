@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ViewStyle } from 'react-native';
-import { useTheme, Theme } from '../theme/ThemeProvider';
+import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { useTheme } from '../theme/ThemeProvider';
 
 export interface TooltipProps {
   children: React.ReactNode;
