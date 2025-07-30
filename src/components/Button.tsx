@@ -11,21 +11,30 @@ interface ButtonProps {
   testID?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({ title, onPress, disabled, style, textStyle, testID }) => (
-  <TouchableOpacity
-    style={[
-      styles.button,
-      disabled ? styles.disabled : undefined,
-      ...(Array.isArray(style) ? style : (Boolean(style)) ? [style] : []),
-    ]}
-    onPress={onPress}
-    disabled={disabled}
-    activeOpacity={0.7}
-    testID={testID}
-  >
-    <Text style={[styles.text, textStyle]}>{title}</Text>
-  </TouchableOpacity>
-);
+
+export const Button: React.FC<ButtonProps> = ({ title, onPress, disabled, style, textStyle, testID }) => {
+  let styleArray: ViewStyle[] = [];
+  if (Array.isArray(style)) {
+    styleArray = style;
+  } else if (style) {
+    styleArray = [style];
+  }
+  return (
+    <TouchableOpacity
+      style={[
+        styles.button,
+        disabled ? styles.disabled : undefined,
+        ...styleArray,
+      ]}
+      onPress={onPress}
+      disabled={disabled}
+      activeOpacity={0.7}
+      testID={testID}
+    >
+      <Text style={[styles.text, textStyle]}>{title}</Text>
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   button: {

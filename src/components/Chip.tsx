@@ -15,12 +15,12 @@ export const Chip: React.FC<ChipProps> = ({ label, onPress, selected, style }) =
     <TouchableOpacity
       style={[
         styles(theme).chip,
-        (Boolean(selected)) && styles(theme).selected,
+        selected && styles(theme).selected,
         style,
       ]}
       onPress={onPress}
-      activeOpacity={(Boolean(onPress)) ? 0.7 : 1}
-      disabled={!(Boolean(onPress))}
+      activeOpacity={onPress ? 0.7 : 1}
+      disabled={!onPress}
     >
       <Text style={styles(theme).label}>{label}</Text>
     </TouchableOpacity>

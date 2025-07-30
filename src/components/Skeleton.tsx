@@ -1,9 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, ViewStyle } from 'react-native';
+import { View, StyleSheet, ViewStyle, DimensionValue } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
-
-
-import { DimensionValue } from 'react-native';
 
 export interface SkeletonProps {
   width?: DimensionValue;

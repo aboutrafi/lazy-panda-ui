@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ViewStyle, FlatList, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, ViewStyle, FlatList, TouchableOpacity } from 'react-native';
 import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface ListItem {

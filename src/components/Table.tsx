@@ -18,13 +18,21 @@ export const Table: React.FC<TableProps> = ({ columns, data, style }) => {
             <Text key={col} style={[styles(theme).cell, styles(theme).header]}>{col}</Text>
           ))}
         </View>
-        {data.map((row, idx) => (
-          <View key={idx} style={styles(theme).row}>
-            {row.map((cell, cidx) => (
-              <Text key={cidx} style={styles(theme).cell}>{cell}</Text>
-            ))}
-          </View>
-        ))}
+        {data.map((row, idx) => {
+          // Use a unique key for each row if possible, otherwise fallback to index
+          const rowKey = row.join('|') || `table-row-${idx}`;
+          return (
+            <View key={rowKey} style={styles(theme).row}>
+              {row.map((cell, cidx) => {
+                // Use a unique key for each cell if possible
+                const cellKey = `${rowKey}-cell-${cell}-${cidx}`;
+                return (
+                  <Text key={cellKey} style={styles(theme).cell}>{cell}</Text>
+                );
+              })}
+            </View>
+          );
+        })}
       </View>
     </ScrollView>
   );

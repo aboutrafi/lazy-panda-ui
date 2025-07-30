@@ -12,17 +12,21 @@ export const Grid: React.FC<GridProps> = ({ children, columns = 2, gap = 8, styl
   const childArray = React.Children.toArray(children);
   return (
     <View style={[styles.grid, style]}> 
-      {childArray.map((child, idx) => (
-        <View
-          key={idx}
-          style={{
-            width: (100 / columns) + '%' as unknown as number,
-            padding: gap / 2,
-          }}
-        >
-          {child}
-        </View>
-      ))}
+      {childArray.map((child, idx) => {
+        // Use child.key if available, otherwise fallback to index (not ideal)
+        const key = (React.isValidElement(child) && child.key != null) ? child.key : `grid-item-${idx}`;
+        return (
+          <View
+            key={key}
+            style={{
+              width: (100 / columns) + '%' as unknown as number,
+              padding: gap / 2,
+            }}
+          >
+            {child}
+          </View>
+        );
+      })}
     </View>
   );
 };

@@ -9,7 +9,7 @@ export const Switch: React.FC<SwitchProps> = (props) => {
   return (
     <RNSwitch
       trackColor={{ false: theme.colors.border, true: theme.colors.primary }}
-      thumbColor={(Boolean(props.value)) ? theme.colors.primary : theme.colors.card}
+      thumbColor={props.value ? theme.colors.primary : theme.colors.card}
       ios_backgroundColor={theme.colors.border}
       {...props}
     />

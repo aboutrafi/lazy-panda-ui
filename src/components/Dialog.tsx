@@ -1,6 +1,5 @@
 import React from 'react';
-import { Modal, View, StyleSheet, ViewStyle } from 'react-native';
-import { Text } from 'react-native';
+import { Modal, View, StyleSheet, ViewStyle, Text } from 'react-native';
 import { useTheme, Theme } from '../theme/ThemeProvider';
 
 export interface DialogProps {
