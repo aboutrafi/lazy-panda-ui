@@ -36,7 +36,7 @@ export const Tooltip: React.FC<TooltipProps> = ({ children, text, style }) => {
         {trigger}
       </TouchableOpacity>
       {visible && (
-        <View style={styles(theme as Theme).tooltip} testID="tooltip-content">
+        <View style={styles(theme).tooltip} testID="tooltip-content">
           <Text style={styles(theme).text}>{text}</Text>
         </View>
       )}
