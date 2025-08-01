@@ -1,6 +1,5 @@
 export * from './components/Button';
 export * from './components/Card';
-export * from './components/Input';
 export * from './components/AutoComplete';
 export * from './components/ButtonGroup';
 export * from './components/CheckBox';
